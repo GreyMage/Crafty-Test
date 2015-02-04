@@ -1,0 +1,25 @@
+{
+  "name": "Crafty-Test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "craftyjs": "^0.6.3",
+    "express": "^4.11.2",
+    "socket.io": "^1.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://GreyMage@github.com/GreyMage/Crafty-Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreyMage/Crafty-Test/issues"
+  },
+  "homepage": "https://github.com/GreyMage/Crafty-Test"
+}
