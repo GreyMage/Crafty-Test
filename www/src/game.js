@@ -54,6 +54,7 @@ Game = {
 			for(var i in players){
 				var pl = players[i];
 				if(pl.playerID != data.id) continue;
+				console.log(pl);
 				pl.x = data.x;
 				pl.y = data.y;
 				pl.dx = data.dx;
@@ -63,6 +64,16 @@ Game = {
 			// didnt find a guy to twitch? make one.
 			var newbie = Crafty.e('Player').at(data.x, data.y);
 			newbie.playerID = data.id;
+		});
+		Game.socket.on('leave', function (data) {
+			console.log("leave",data)
+			var players = Crafty("Player").get();
+			for(var i in players){
+				var pl = players[i];
+				if(pl.playerID != data.id) continue;
+				pl.destroy();
+				return;
+			}
 		});
 				
 	}
