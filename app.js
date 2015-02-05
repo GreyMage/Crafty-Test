@@ -57,6 +57,13 @@ io.on('connection', function (socket) {
 			console.log("new user");
 		}
 		socket.sd.player = cuddlePile[id];
+		
+		// Check bounds 
+		if(socket.sd.player.x < 0) socket.sd.player.x = 0;
+		if(socket.sd.player.y < 0) socket.sd.player.y = 0;
+		if(socket.sd.player.x > 800) socket.sd.player.x = 800 - 16;
+		if(socket.sd.player.y > 600) socket.sd.player.y = 600 - 16;
+		
 		socket.broadcast.emit('twitch',socket.sd.player);
 		
 		// Attach Registered Events

@@ -32,8 +32,9 @@ Crafty.c('Actor', {
 Crafty.c('Player', {
 	motionResolution:1000,
 	init: function() {
-		this.requires('Actor, Color').color('rgb(20, 75, 40)');
+		this.requires('Actor, Color, Tween').color('rgb(20, 75, 40)');
 		this.bind('EnterFrame',this.EnterFrame);
+		this.origin(this.x/2,this.y/2);
 	},
 	EnterFrame: function(data){
 		this.shift(this.dx,this.dy);
@@ -43,8 +44,16 @@ Crafty.c('Player', {
 
 Crafty.c('LocalPlayer', {
 	init: function() {
-		this.requires('Player, Fourway').color('rgb(80, 75, 40)').fourway(3);
+		this.requires('Player, Fourway, Keyboard').color('rgb(80, 75, 40)').fourway(3);
 		this.bind('NewDirection',this.twitch);
+		this.bind('KeyDown', this.KeyDown);
+	},
+	KeyDown: function(){
+		var me = this;
+		if(this.isDown("SPACE")) {
+			console.log("jump?");
+			
+		}
 	},
 	twitch:function(data){
 		Game.socket.emit("twitch",{
